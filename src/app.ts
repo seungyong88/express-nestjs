@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   console.log(req.rawHeaders[1]);
-  console.log("this is middleware22"2)
+  console.log("this is middleware22")
   next();
 });
 

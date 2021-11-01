@@ -26,6 +26,11 @@ app.get('/cats/som', function (req, res) {
     console.log(req.rawHeaders[1]);
     res.send({ som: Cats_1.Cat[1] });
 });
+app.use(function (req, res, next) {
+    console.log('this is error middleware');
+    res.send({ error: '404 not found' });
+    next();
+});
 app.listen(port, function () {
     console.log("Example app listening at http://localhost:" + port);
 });

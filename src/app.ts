@@ -18,7 +18,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.get('/', (req: express.Request, res: express.Response) => {
   res.send({ cats: Cat }) // 캣정보 내려보내주기
 })
@@ -32,6 +31,12 @@ app.get('/cats/som', (req, res) => {
   console.log(req.rawHeaders[1]);
   res.send({ som: Cat[1] });
 })
+
+app.use((req, res, next) => {
+  console.log('this is error middleware');
+  res.send({ error : '404 not found' })
+  next();
+});
 
 
 app.listen(port, () => {

@@ -1,4 +1,3 @@
-import { Cat, CatType } from './cats.model';
 import { Router } from 'express';
 import { 
   readAllcat, 

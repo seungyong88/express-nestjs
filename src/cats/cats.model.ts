@@ -7,8 +7,6 @@ export type CatType = {
     friends: string[];
 };
 
-
-
 export const Cat: CatType[] = [
     {
         id: 'blue',

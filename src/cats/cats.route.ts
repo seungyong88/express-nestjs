@@ -1,65 +1,21 @@
 import { Cat, CatType } from './cats.model';
 import { Router } from 'express';
+import { 
+  readAllcat, 
+  readCat, 
+  createCat,
+  updateCat,
+  updatePartCat,
+  deleteCat
+} from "./cats.service";
 
 const router = Router();
 
-// GET 전체 리턴
-router.get('/cats', (req, res) => {
-    try {
-        res.status(200).send({
-            success: true,
-            data: {
-                Cat,
-            }
-        })
-    } catch (error) {
-        res.status(400).send({
-            success: false,
-            error: error
-        })
-    }
-})
-
-// GET 특정 ID 리턴
-router.get('/cats/:id', (req, res) => {
-    const { id } = req.params;
-
-    console.log("id", id);
-    try {
-        const cats = Cat.find(cat => cat.id === id);
-        // throw new Error('db connect error')
-        res.status(200).send({
-            success: true,
-            data: {
-                cats,
-            }
-        })
-    } catch (error) {
-        res.status(400).send({
-            success: false,
-            error: error
-        })
-    }
-})
-
-// 고양이 추가하기
-router.post('/cats', (req, res) => {
-    try {
-        const data = req.body;
-        Cat.push(data);
-
-        res.status(200).send({
-            success: true,
-            data: {
-                Cat,
-            }
-        })
-    } catch (error) {
-        res.status(400).send({
-            success: false,
-            error: error
-        })
-    }
-})
+router.get('/cats', readAllcat); // GET 전체 리턴
+router.get('/cats/:id', readCat); // GET 특정 ID 리턴
+router.post('/cats', createCat); // 고양이 추가하기
+router.put('/cats/:id', updateCat); // 고양이 put
+router.patch('/cats/:id', updatePartCat); // 고양이 patch
+router.delete('/cats/:id', deleteCat); // 고양이 삭제 
 
 export default router;

@@ -1,43 +1,34 @@
 import * as express from "express";
-import { Cat, CatType } from './Cats';
+import catsRouter from "./cats/cats.route";
 
 const app: express.Express = express();
 const port: number = 4000;
 
 const data = [1, 2, 3, 4];
 
+/** logger middleware */
 app.use((req, res, next) => {
   console.log(req.rawHeaders[1]);
   console.log("this is middleware")
   next();
 });
 
-app.use((req, res, next) => {
-  console.log(req.rawHeaders[1]);
-  console.log("this is middleware22")
-  next();
-});
+//* json middleware
 
-app.get('/', (req: express.Request, res: express.Response) => {
-  res.send({ cats: Cat }) // 캣정보 내려보내주기
-})
+app.use(express.json());
+app.use(catsRouter);
 
-app.get('/cats/blue', (req, res, next: express.NextFunction) => {
-  console.log(req.rawHeaders[1]);
-  res.send({ blue: Cat[0] });
-})
+// //READ 고양이 전체 데이터 조회하기
+// app.get('/', (req: express.Request, res: express.Response) => {
+//   res.send({ cats: Cat }) // 캣정보 내려보내주기
+// })
 
-app.get('/cats/som', (req, res) => {
-  console.log(req.rawHeaders[1]);
-  res.send({ som: Cat[1] });
-})
-
+/** 404 middleware */
 app.use((req, res, next) => {
   console.log('this is error middleware');
-  res.send({ error : '404 not found' })
+  res.send({ error: '404 not found' })
   next();
 });
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

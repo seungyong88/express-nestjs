@@ -1,7 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Cat = void 0;
-exports.Cat = [
+export type CatType = {
+    id: string;
+    name: string;
+    age: number;
+    species: string;
+    isCute: boolean;
+    friends: string[];
+};
+
+
+
+export const Cat: CatType[] = [
     {
         id: 'blue',
         name: 'blue',
@@ -43,4 +51,3 @@ exports.Cat = [
         friends: [],
     },
 ];
-//# sourceMappingURL=Cats.js.map

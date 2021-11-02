@@ -1,17 +1,9 @@
-export type CatType = {
-    id: string;
-    name: string;
-    age: number;
-    species: string;
-    isCute: boolean;
-    friends: string[];
-};
-
-
-
-export const Cat: CatType[] = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Cat = void 0;
+exports.Cat = [
     {
-        id: 'fsduifh',
+        id: 'blue',
         name: 'blue',
         age: 8,
         species: 'Russian Blue',
@@ -19,7 +11,7 @@ export const Cat: CatType[] = [
         friends: ['asdfhj29009', 'WE09tju2j'],
     },
     {
-        id: 'iohf2309q4hr',
+        id: 'som',
         name: 'som',
         age: 4,
         species: 'Sphynx cat',
@@ -27,7 +19,7 @@ export const Cat: CatType[] = [
         friends: ['weju0fj20qj', 'asdfhj29009', 'weju0fj20qj'],
     },
     {
-        id: 'WE09tju2j',
+        id: 'lean',
         name: 'lean',
         age: 6,
         species: 'Munchkin',
@@ -35,7 +27,7 @@ export const Cat: CatType[] = [
         friends: [],
     },
     {
-        id: 'asdfhj29009',
+        id: 'star',
         name: 'star',
         age: 10,
         species: 'Scottish Fold',
@@ -43,7 +35,7 @@ export const Cat: CatType[] = [
         friends: ['weju0fj20qj'],
     },
     {
-        id: 'weju0fj20qj',
+        id: 'red',
         name: 'red',
         age: 2,
         species: 'Sharm',
@@ -51,3 +43,4 @@ export const Cat: CatType[] = [
         friends: [],
     },
 ];
+//# sourceMappingURL=cats.js.map
